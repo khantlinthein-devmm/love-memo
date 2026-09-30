@@ -13,6 +13,18 @@ HOW TO MAKE THE WEBSITE YOURS  (about 10 minutes)
    - Change: yourName, herName, the story (timeline), reasons, and the letter.
    - Keep the "quotes" and the commas at the end of each line.
 
+2b) THE SURPRISES (all inside CONFIG too)
+   - secret:      the question she must answer first. Put every way she
+                  might type the answer in "answers". Use  answers: []  to turn it off.
+   - scratchPrize: what's hidden under the scratch card.
+   - coupons:     love coupons she can tap to "redeem".
+   - bucketList:  things to do together; she can tick them off.
+   - timeCapsule: a letter that stays locked until "openOn".
+   - question / noLines: the last question, where the "No" button runs away.
+   Coupons and bucket-list ticks are saved in HER browser on HER phone.
+   Note: anyone who opens the page's source code can read the answer
+   and the time-capsule letter. It's a sweet lock, not a real safe.
+
 3) SEE IT
    - Double-click index.html. It opens in your browser.
 

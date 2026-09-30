@@ -179,6 +179,82 @@ footer{text-align:center;padding:30px 16px 50px;color:var(--muted);font-size:.85
 #musicBtn.on{animation:spin 4s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+[hidden]{display:none!important}
+
+/* ---------- secret question ---------- */
+.lock-box{width:min(380px,100%);display:flex;flex-direction:column;align-items:center;gap:14px}
+.lock-box .q{font-family:var(--serif);font-size:1.4rem;line-height:1.35;color:var(--cream)}
+.lock-box input{width:100%;padding:14px 20px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);
+  color:var(--cream);font:inherit;font-size:1.05rem;text-align:center;outline:none}
+.lock-box input:focus{border-color:var(--rose)}
+.lock-box .msg{min-height:1.5em;font-family:var(--serif);font-style:italic;color:var(--rose)}
+.lock-box .love-btn{font-size:1.15rem;padding:14px 36px}
+#envWrap{display:flex;flex-direction:column;align-items:center}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+
+/* ---------- scratch card ---------- */
+.scratch{position:relative;max-width:460px;height:240px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.scratch-prize{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:24px;text-align:center;
+  background:linear-gradient(145deg,#fbf1e7,#f6d7c9);color:#4a2432}
+.scratch-prize small{letter-spacing:.3em;text-transform:uppercase;font-size:.7rem;color:var(--rose-deep)}
+.scratch-prize div{font-family:var(--serif);font-size:1.6rem;font-weight:600;line-height:1.3}
+.scratch canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;transition:opacity .9s}
+.scratch.done canvas{opacity:0;pointer-events:none}
+
+/* ---------- coupons ---------- */
+.coupons{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.coupon{position:relative;border:none;cursor:pointer;text-align:center;font:inherit;color:#4a2432;padding:28px 26px;border-radius:14px;
+  background:linear-gradient(135deg,#fbf1e7,#f6d7c9);box-shadow:0 16px 40px rgba(0,0,0,.4);transition:transform .3s;
+  -webkit-mask:radial-gradient(circle 13px at left center,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at right center,#0000 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 13px at left center,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 13px at right center,#0000 98%,#000) right/51% 100% no-repeat}
+.coupon::before{content:"";position:absolute;inset:9px 20px;border:2px dashed rgba(217,87,127,.4);border-radius:8px;pointer-events:none}
+.coupon:hover{transform:translateY(-4px)}
+.c-top{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose-deep)}
+.c-text{font-family:var(--serif);font-size:1.35rem;font-weight:600;line-height:1.3;margin:8px 0;transition:opacity .3s}
+.c-hint{font-size:.72rem;color:#9a6a7a}
+.stamp{position:absolute;left:50%;top:50%;translate:-50% -50%;rotate:-14deg;scale:2;opacity:0;transition:.35s cubic-bezier(.3,1.6,.5,1);
+  border:3px solid var(--rose-deep);color:var(--rose-deep);border-radius:8px;padding:4px 14px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:.95rem;background:rgba(251,241,231,.85)}
+.coupon.used .stamp{opacity:1;scale:1}
+.coupon.used .c-text,.coupon.used .c-hint{opacity:.35}
+
+/* ---------- bucket list ---------- */
+.bucket{max-width:620px;margin:0 auto}
+.b-progress{display:flex;align-items:center;gap:14px;margin-bottom:22px;color:var(--gold);font-size:.85rem;letter-spacing:.1em}
+.b-progress .bar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.b-progress .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--gold));transition:width .5s}
+.bucket ul{list-style:none;display:grid;gap:10px}
+.bucket label{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);font-family:var(--serif);font-size:1.25rem;transition:.3s}
+.bucket input{position:absolute;opacity:0;pointer-events:none}
+.bucket .box{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--rose);display:grid;place-items:center;color:#fff;font-size:.8rem;transition:.3s}
+.bucket input:checked + .box{background:var(--rose-deep);border-color:var(--rose-deep)}
+.bucket input:checked + .box::after{content:"♥"}
+.bucket input:checked ~ span:last-child{text-decoration:line-through;color:var(--muted)}
+.bucket input:focus-visible + .box{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---------- time capsule ---------- */
+.capsule{max-width:720px;margin:0 auto}
+.cap-lock{width:100%;border:1px solid var(--line);border-radius:20px;padding:44px 24px;text-align:center;cursor:pointer;color:var(--cream);font:inherit;
+  background:linear-gradient(145deg,var(--card),#3b2040);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.cap-lock .padlock{font-size:3.4rem;line-height:1}
+.cap-lock .cap-title{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-top:14px}
+.cap-lock .cap-left{color:var(--gold);letter-spacing:.12em;margin-top:6px;font-variant-numeric:tabular-nums}
+.cap-lock .cap-msg{min-height:1.5em;font-family:var(--serif);font-style:italic;color:var(--rose);margin-top:10px}
+.cap-lock.ready{border-color:var(--rose);animation:glow 2s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 50px rgba(242,138,168,.5)}}
+
+/* ---------- will you ...? ---------- */
+.ask-q{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:10px}
+.ask-zone{position:relative;height:220px;display:flex;align-items:center;justify-content:center;gap:18px}
+.love-btn{transform:scale(var(--grow,1))}
+.love-btn:hover{transform:scale(calc(var(--grow,1) * 1.07))}
+.no-btn{font-family:var(--serif);font-size:1.15rem;padding:14px 34px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);transition:left .25s,top .25s}
+.no-btn.run{position:absolute}
+.confetti{position:fixed;top:-20px;z-index:96;width:9px;height:15px;pointer-events:none;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r))}}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
@@ -192,10 +268,18 @@ footer{text-align:center;padding:30px 16px 50px;color:var(--muted);font-size:.85
 <!-- ============ ENVELOPE GATE ============ -->
 <div id="gate">
   <h1 id="gateTitle">For you, my love</h1>
-  <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
-    <div class="flap"></div><div class="pocket"></div><div class="seal">♥</div>
+  <form class="lock-box" id="lockBox" autocomplete="off" hidden>
+    <label class="q" id="lockQ" for="lockInput"></label>
+    <input id="lockInput" type="text" placeholder="Your answer…">
+    <button class="love-btn" type="submit">Unlock ♥</button>
+    <div class="msg" id="lockMsg" aria-live="polite"></div>
+  </form>
+  <div id="envWrap">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
+      <div class="flap"></div><div class="pocket"></div><div class="seal">♥</div>
+    </div>
+    <p>Tap the envelope to open</p>
   </div>
-  <p>Tap the envelope to open</p>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -260,6 +344,65 @@ footer{text-align:center;padding:30px 16px 50px;color:var(--muted);font-size:.85
   </div>
 </section>
 
+<!-- ============ SCRATCH CARD ============ -->
+<section id="surprise">
+  <div class="wrap">
+    <div class="eyebrow reveal">Scratch it with your finger</div>
+    <h2 class="reveal">A Little Surprise</h2>
+    <div class="divider reveal">♥</div>
+    <div class="scratch reveal" id="scratch">
+      <div class="scratch-prize"><small id="scratchTitle"></small><div id="scratchPrize"></div></div>
+      <canvas id="scratchCv" aria-label="Scratch card"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COUPONS ============ -->
+<section id="couponSec">
+  <div class="wrap">
+    <div class="eyebrow reveal">Tap one to use it</div>
+    <h2 class="reveal">Love Coupons</h2>
+    <p class="sub reveal">Valid forever. No expiry date. Just like us.</p>
+    <div class="divider reveal">♥</div>
+    <div class="coupons" id="coupons"></div>
+  </div>
+</section>
+
+<!-- ============ BUCKET LIST ============ -->
+<section id="bucketSec">
+  <div class="wrap">
+    <div class="eyebrow reveal">Our future, together</div>
+    <h2 class="reveal">Our Bucket List</h2>
+    <div class="divider reveal">♥</div>
+    <div class="bucket reveal">
+      <div class="b-progress"><div class="bar"><i id="bBar"></i></div><span id="bCount"></span></div>
+      <ul id="bucketList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIME CAPSULE ============ -->
+<section id="capsuleSec">
+  <div class="wrap">
+    <div class="eyebrow reveal">Not yet, my love</div>
+    <h2 class="reveal">Time Capsule</h2>
+    <div class="divider reveal">♥</div>
+    <div class="capsule reveal">
+      <button class="cap-lock" id="capLock">
+        <div class="padlock" id="capIcon">🔒</div>
+        <div class="cap-title" id="capTitle"></div>
+        <div class="cap-left" id="capLeft"></div>
+        <div class="cap-msg" id="capMsg" aria-live="polite"></div>
+      </button>
+      <div class="letter" id="capLetter" hidden>
+        <div class="dear" id="capTo"></div>
+        <div id="capBody"></div>
+        <div class="sign" id="capFrom"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FINALE ============ -->
 <section id="finale">
   <div class="wrap">
@@ -271,8 +414,14 @@ footer{text-align:center;padding:30px 16px 50px;color:var(--muted);font-size:.85
       <div><span id="nM">0</span><small>Minutes</small></div>
       <div><span id="nS">0</span><small>Seconds</small></div>
     </div>
-    <button class="love-btn reveal" id="loveBtn">Will you stay with me forever?</button>
-    <div id="answer"></div>
+    <div class="reveal">
+      <p class="ask-q" id="askQ"></p>
+      <div class="ask-zone" id="askZone">
+        <button class="love-btn" id="yesBtn"></button>
+        <button class="no-btn" id="noBtn"></button>
+      </div>
+    </div>
+    <div id="answer" aria-live="polite"></div>
   </div>
 </section>
 
@@ -353,7 +502,60 @@ const CONFIG = {
   ],
   letterFrom: "Forever yours ♥",
 
-  // Message after she presses the button at the end
+  // 🔒 SECRET QUESTION — she must answer this before the site opens.
+  // Any answer in the list is accepted (capitals, spaces, dots and slashes
+  // are ignored, and Myanmar digits ၀-၉ work too).
+  // Leave  answers: []  to turn the question off.
+  secret: {
+    question: "When did we first meet? (day / month / year)",
+    answers: ["25/10/2021", "25 october 2021", "october 25 2021", "25 oct 2021", "oct 25 2021", "2021-10-25", "10/25/2021"],
+    hint: "Hint: October 2021… which day? ♥",
+  },
+
+  // 🎟️ SCRATCH CARD — what she finds under the gold layer
+  // (<br> starts a new line)
+  scratchTitle: "You won…",
+  scratchPrize: "A surprise dinner date 🍝<br>Saturday, 7 PM — dress up!",
+
+  // 💝 LOVE COUPONS — she taps one to use it (it gets a "Redeemed" stamp)
+  coupons: [
+    "One full body massage 💆",
+    "I say sorry first after a fight",
+    "Breakfast in bed ☕",
+    "You pick the movie — no complaints",
+    "A whole day of yes 😇",
+    "One long hug, anytime, anywhere 🤗",
+  ],
+
+  // ✅ BUCKET LIST — things you want to do together (she can tick them)
+  bucketList: [
+    "Watch the sunrise at the beach together",
+    "Travel to a new country",
+    "Cook a fancy dinner together from scratch",
+    "Take a hot air balloon ride in Bagan",
+    "Adopt a pet",
+    "Dance in the rain",
+    "Grow old together ♥",
+  ],
+
+  // ⏳ TIME CAPSULE — a letter that stays locked until this date
+  timeCapsule: {
+    openOn: { year: 2026, month: 11, day: 1 },   // (Year, Month 1-12, Day)
+    to: "To my love, on our 5th anniversary,",
+    letter: [
+      "Five whole years. If you're reading this, we made it — and I'm still the luckiest person alive.",
+      "Thank you for choosing me again and again. Here's to the next five, and every year after that.",
+    ],
+    from: "Always yours ♥",
+  },
+
+  // THE LAST QUESTION — the "No" button runs away 😝
+  question: "Will you stay with me forever?",
+  yesText: "Yes ♥",
+  noText: "No",
+  noLines: ["Are you sure? 🥺", "Think again!", "Nope, try again", "Wrong button 😝", "You can't escape", "Just press Yes ♥"],
+
+  // Message after she presses "Yes"
   finalAnswer: "I love you, forever & always ♥",
 };
 /* ============ end of CONFIG — no need to edit below ============ */
@@ -407,6 +609,73 @@ $('reasonsGrid').innerHTML = CONFIG.reasons.map((r, i) =>
    </div></div>`
 ).join('');
 document.querySelectorAll('.flip').forEach(c => c.addEventListener('click', () => c.classList.toggle('flipped')));
+
+/* saved on her phone, so coupons & ticks stay after she closes the page */
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem('love-memo:' + k)) || {}; } catch (e) { return {}; } },
+  set(k, v) { try { localStorage.setItem('love-memo:' + k, JSON.stringify(v)); } catch (e) {} },
+};
+
+/* coupons */
+const used = store.get('coupons');
+$('coupons').innerHTML = CONFIG.coupons.map((c, i) =>
+  `<button class="coupon reveal${used[c] ? ' used' : ''}" data-i="${i}">
+     <div class="c-top">Love Coupon · No. ${String(i + 1).padStart(2, '0')}</div>
+     <div class="c-text">${c}</div>
+     <div class="c-hint">${used[c] ? 'tap to undo' : 'tap to redeem'}</div>
+     <div class="stamp">Redeemed ♥</div>
+   </button>`
+).join('');
+document.querySelectorAll('.coupon').forEach(b => b.addEventListener('click', e => {
+  const c = CONFIG.coupons[b.dataset.i];
+  used[c] = !used[c];
+  if (!used[c]) delete used[c];
+  store.set('coupons', used);
+  b.classList.toggle('used', !!used[c]);
+  b.querySelector('.c-hint').textContent = used[c] ? 'tap to undo' : 'tap to redeem';
+  if (used[c]) burst(e.clientX, e.clientY, 16);
+}));
+
+/* bucket list */
+const done = store.get('bucket');
+$('bucketList').innerHTML = CONFIG.bucketList.map((t, i) =>
+  `<li><label><input type="checkbox" data-i="${i}"${done[t] ? ' checked' : ''}><span class="box"></span><span>${t}</span></label></li>`
+).join('');
+function bucketProgress() {
+  const n = CONFIG.bucketList.filter(t => done[t]).length;
+  $('bCount').textContent = n + ' / ' + CONFIG.bucketList.length + ' done';
+  $('bBar').style.width = (CONFIG.bucketList.length ? n / CONFIG.bucketList.length * 100 : 0) + '%';
+}
+document.querySelectorAll('#bucketList input').forEach(cb => cb.addEventListener('change', () => {
+  const t = CONFIG.bucketList[cb.dataset.i];
+  if (cb.checked) done[t] = true; else delete done[t];
+  store.set('bucket', done);
+  bucketProgress();
+  if (cb.checked) { const r = cb.parentNode.getBoundingClientRect(); burst(r.left + 30, r.top + r.height / 2, 14); }
+}));
+bucketProgress();
+
+/* ---------- secret question ---------- */
+const norm = s => s.toLowerCase().replace(/[၀-၉]/g, d => d.charCodeAt(0) - 0x1040).replace(/[^a-z0-9က-႟]/g, '');
+if (CONFIG.secret.answers.length) {
+  $('lockBox').hidden = false;
+  $('envWrap').hidden = true;
+  $('lockQ').textContent = CONFIG.secret.question;
+  let wrong = 0;
+  $('lockBox').addEventListener('submit', e => {
+    e.preventDefault();
+    const ok = CONFIG.secret.answers.some(a => norm(a) === norm($('lockInput').value));
+    if (ok) {
+      $('lockBox').hidden = true;
+      $('envWrap').hidden = false;
+      $('envelope').focus();
+      return;
+    }
+    wrong++;
+    $('lockMsg').textContent = wrong > 1 ? CONFIG.secret.hint : 'Not quite… try again ♥';
+    $('lockBox').classList.remove('shake'); void $('lockBox').offsetWidth; $('lockBox').classList.add('shake');
+  });
+}
 
 /* ---------- envelope gate ---------- */
 function openGate() {
@@ -541,9 +810,127 @@ function burst(x, y, n = 40) {
     b.addEventListener('animationend', () => b.remove());
   }
 }
-$('loveBtn').addEventListener('click', e => {
+/* ---------- will you ...? (the "No" button runs away) ---------- */
+function confetti() {
+  if (reduce) return;
+  const colors = ['#f28aa8', '#d9577f', '#f3c98b', '#fbeee6', '#ffb3c7', '#c77dff'];
+  for (let i = 0; i < 150; i++) {
+    const c = document.createElement('span');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[i % colors.length];
+    c.style.animationDuration = (2.5 + Math.random() * 2.5) + 's';
+    c.style.animationDelay = Math.random() * .6 + 's';
+    c.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+    c.style.setProperty('--r', (Math.random() * 1080 - 540) + 'deg');
+    document.body.append(c);
+    c.addEventListener('animationend', () => c.remove());
+  }
+}
+$('askQ').textContent = CONFIG.question;
+$('yesBtn').textContent = CONFIG.yesText;
+$('noBtn').textContent = CONFIG.noText;
+let noTries = 0;
+function dodge(e) {
+  e.preventDefault();
+  const z = $('askZone'), no = $('noBtn'), yes = $('yesBtn');
+  no.textContent = CONFIG.noLines[noTries++ % CONFIG.noLines.length];
+  no.classList.add('run');
+  const zr = z.getBoundingClientRect(), yr = yes.getBoundingClientRect();
+  const maxX = Math.max(0, z.clientWidth - no.offsetWidth), maxY = Math.max(0, z.clientHeight - no.offsetHeight);
+  let x, y;
+  for (let k = 0; k < 30; k++) {   // don't land on top of "Yes"
+    x = Math.random() * maxX; y = Math.random() * maxY;
+    const l = zr.left + x, t = zr.top + y;
+    if (l + no.offsetWidth < yr.left - 10 || l > yr.right + 10 || t + no.offsetHeight < yr.top - 10 || t > yr.bottom + 10) break;
+  }
+  no.style.left = x + 'px'; no.style.top = y + 'px';
+  yes.style.setProperty('--grow', Math.min(1 + noTries * .08, 1.6));
+}
+$('noBtn').addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') dodge(e); });
+$('noBtn').addEventListener('pointerdown', dodge);
+$('noBtn').addEventListener('click', dodge);
+$('yesBtn').addEventListener('click', e => {
   burst(e.clientX, e.clientY, 60);
+  confetti();
+  $('noBtn').hidden = true;
   $('answer').textContent = CONFIG.finalAnswer;
+});
+
+/* ---------- scratch card ---------- */
+$('scratchTitle').textContent = CONFIG.scratchTitle;
+$('scratchPrize').innerHTML = CONFIG.scratchPrize;
+const sc = $('scratchCv'), sx = sc.getContext('2d');
+let scratchStarted = false, scratchDone = false, scratching = false, last = null, scW = 0;
+function paintScratch() {
+  if (scratchStarted || !sc.offsetWidth || sc.offsetWidth === scW) return;
+  const w = scW = sc.offsetWidth, h = sc.offsetHeight, d = devicePixelRatio;
+  sc.width = w * d; sc.height = h * d; sx.scale(d, d);
+  const g = sx.createLinearGradient(0, 0, w, h);
+  g.addColorStop(0, '#f3c98b'); g.addColorStop(.55, '#e9a79a'); g.addColorStop(1, '#d9577f');
+  sx.fillStyle = g; sx.fillRect(0, 0, w, h);
+  sx.fillStyle = 'rgba(255,255,255,.35)'; sx.font = '18px serif'; sx.textAlign = 'center'; sx.textBaseline = 'middle';
+  for (let y = 18; y < h; y += 36) for (let x = (y / 36 % 2) * 22 + 14; x < w; x += 44) sx.fillText('♥', x, y);
+  sx.fillStyle = '#fff'; sx.font = '500 20px Inter, sans-serif';
+  sx.fillText('♥  Scratch here  ♥', w / 2, h / 2);
+}
+function scratchTo(e) {
+  const r = sc.getBoundingClientRect(), p = { x: e.clientX - r.left, y: e.clientY - r.top };
+  sx.globalCompositeOperation = 'destination-out';
+  sx.lineWidth = 44; sx.lineCap = 'round';
+  sx.beginPath(); sx.moveTo((last || p).x, (last || p).y); sx.lineTo(p.x + .1, p.y); sx.stroke();
+  last = p;
+}
+function checkScratch() {
+  if (scratchDone) return;
+  const px = sx.getImageData(0, 0, sc.width, sc.height).data;
+  let clear = 0, total = 0;
+  for (let i = 3; i < px.length; i += 4 * 40) { total++; if (px[i] === 0) clear++; }
+  if (clear / total > .5) {
+    scratchDone = true;
+    $('scratch').classList.add('done');
+    const r = sc.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top + r.height / 2, 40);
+  }
+}
+sc.addEventListener('pointerdown', e => { scratchStarted = scratching = true; last = null; sc.setPointerCapture(e.pointerId); scratchTo(e); });
+sc.addEventListener('pointermove', e => { if (scratching) scratchTo(e); });
+['pointerup', 'pointercancel'].forEach(t => sc.addEventListener(t, () => { if (scratching) { scratching = false; checkScratch(); } }));
+paintScratch();
+addEventListener('resize', paintScratch);
+if (document.fonts) document.fonts.ready.then(() => { scW = 0; paintScratch(); });
+
+/* ---------- time capsule ---------- */
+const tc = CONFIG.timeCapsule;
+const openOn = new Date(tc.openOn.year, tc.openOn.month - 1, tc.openOn.day);
+$('capTitle').textContent = 'Open on ' + openOn.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+$('capTo').textContent = tc.to;
+$('capBody').innerHTML = tc.letter.map(p => `<p>${p}</p>`).join('');
+$('capFrom').innerHTML = tc.from + '<br>' + CONFIG.yourName;
+function capsuleTick() {
+  let left = openOn - new Date();
+  if (left <= 0) {
+    $('capIcon').textContent = '🔓';
+    $('capLeft').textContent = "It's time — tap to open ♥";
+    $('capLock').classList.add('ready');
+    return true;
+  }
+  const d = Math.floor(left / 864e5); left -= d * 864e5;
+  const h = Math.floor(left / 36e5);  left -= h * 36e5;
+  const m = Math.floor(left / 6e4);   left -= m * 6e4;
+  $('capLeft').textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(Math.floor(left / 1e3))}s to go`;
+  return false;
+}
+capsuleTick(); setInterval(capsuleTick, 1000);
+$('capLock').addEventListener('click', e => {
+  if (capsuleTick()) {
+    $('capLock').hidden = true;
+    $('capLetter').hidden = false;
+    burst(e.clientX, e.clientY, 50);
+  } else {
+    $('capMsg').textContent = 'Not yet, my love… be patient ♥';
+    $('capLock').classList.remove('shake'); void $('capLock').offsetWidth; $('capLock').classList.add('shake');
+  }
 });
 document.addEventListener('dblclick', e => burst(e.clientX, e.clientY, 18));
 
