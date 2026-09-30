@@ -1,0 +1,30 @@
+HOW TO MAKE THE WEBSITE YOURS  (about 10 minutes)
+==================================================
+
+1) PHOTOS
+   - Put your photos inside the "photos" folder.
+   - Rename them 1.jpg, 2.jpg, 3.jpg ... 9.jpg
+     (or keep your own names and change them in index.html)
+   - More or fewer photos? Add or remove lines in the "photos:" list.
+
+2) NAMES & WORDS
+   - Open index.html in a text editor (Notepad, TextEdit, VS Code).
+   - Search for:  const CONFIG
+   - Change: yourName, herName, the story (timeline), reasons, and the letter.
+   - Keep the "quotes" and the commas at the end of each line.
+
+3) SEE IT
+   - Double-click index.html. It opens in your browser.
+
+4) OPTIONAL MUSIC
+   - Put a song in the folder, e.g. song.mp3
+   - In CONFIG set:  music: "song.mp3",
+
+5) SEND IT TO HER (free link that works on her phone)
+   - Go to https://app.netlify.com/drop
+   - Drag the WHOLE "anniversary-website" folder onto the page.
+   - You get a link. Send it to her tomorrow ♥
+
+TIPS
+   - Double-click/tap anywhere on the page for a burst of hearts.
+   - Photos from a phone can be big. That's OK, but under 2 MB each loads faster.
